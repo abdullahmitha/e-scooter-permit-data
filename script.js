@@ -1,7 +1,7 @@
 // REPLACE BELOW WITH YOUR INFO
-const GITHUB_TOKEN = "YOUR_GITHUB_TOKEN";
-const GITHUB_USERNAME = "YOUR_GITHUB_USERNAME";
-const REPO_NAME = "YOUR_REPO_NAME";
+const GITHUB_TOKEN = "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";
+const GITHUB_USERNAME = "abdullahmitha";
+const REPO_NAME = "e-scooter-permit-data";
 
 const FILE_PATH = "permits.json";
 const BRANCH = "main";
