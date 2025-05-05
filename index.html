@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>E-Scooter Permit System</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom right, #dce3f5, #f1f3f6);
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      background: white;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    }
+    h1, h2 {
+      text-align: center;
+      color: #2c3e50;
+    }
+    label {
+      font-weight: bold;
+      margin-top: 10px;
+      display: block;
+    }
+    input, select, button {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0 15px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+    button {
+      background-color: #2980b9;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #1c6ea4;
+    }
+    .row {
+      display: flex;
+      gap: 10px;
+    }
+    .half {
+      flex: 1;
+    }
+    #result img {
+      max-width: 120px;
+      border: 2px solid #444;
+      border-radius: 10px;
+      margin-top: 10px;
+    }
+    .badge {
+      display: inline-block;
+      padding: 5px 10px;
+      border-radius: 5px;
+      background-color: #2ecc71;
+      color: white;
+      font-weight: bold;
+    }
+    .expired { background-color: #e74c3c; }
+    .banned { background-color: #f39c12; }
+    .ban-left { background-color: #f39c12; color: white; font-weight: bold; padding: 5px 10px; border-radius: 5px; }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>E-Scooter Permit Manager</h1>
+
+  <div id="loginBox">
+    <label for="adminUser">Admin Username</label>
+    <input type="text" id="adminUser" placeholder="Enter admin username">
+    <label for="adminPass">Admin Password</label>
+    <input type="password" id="adminPass" placeholder="Enter password">
+    <button onclick="login()">Login</button>
+  </div>
+
+  <div id="adminPanel" style="display:none;">
+    <h2>Add / Update Permit</h2>
+    <label>Name</label><input type="text" id="name">
+    <label>Company</label><input type="text" id="company">
+    <label>Emirates ID</label><input type="text" id="eid">
+    <label>Mobile Number</label><input type="text" id="mobile">
+    <label>Nationality</label><input type="text" id="nationality">
+    <label>Start Date (auto-filled)</label><input type="date" id="startDate" disabled>
+    <label>Expiry Date (auto-filled for 1 year)</label><input type="date" id="expiryDate" disabled>
+    <label>Photo (optional)</label><input type="file" id="photo">
+    <div class="row">
+      <div class="half"><label>Ban From</label><input type="date" id="banFrom"></div>
+      <div class="half"><label>Ban To</label><input type="date" id="banTo"></div>
+    </div>
+    <button onclick="savePermit()">Save Permit</button>
+
+    <h2>Search Permit</h2>
+    <input type="text" id="search" placeholder="Enter Mobile or Emirates ID">
+    <button onclick="searchPermit()">Search</button>
+    <div id="result"></div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
